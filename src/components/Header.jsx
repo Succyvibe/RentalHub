@@ -40,6 +40,14 @@ const Header = () => {
             >
               Offers
             </li>
+            <li
+              className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${
+                pathMatchRoute("/notion") && "text-black border-b-red-500"
+              }`}
+              onClick={() => navigate("/notion")}
+            >
+              Notion
+            </li>
 
             <li
               className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${
