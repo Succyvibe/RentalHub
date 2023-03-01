@@ -10,7 +10,7 @@ import {
 
 import { getAuth } from "firebase/auth";
 import { v4 as uuidv4 } from "uuid";
-import { collection, serverTimestamp } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase.js";
 import { useNavigate } from "react-router";
 
@@ -159,6 +159,7 @@ const CreateListing = () => {
       imgUrls,
       geolocation,
       timestamp: serverTimestamp(),
+      userRef: auth.currentUser.uid,
     };
     delete formDataCopy.images;
     !formDataCopy.offer && delete formDataCopy.discountedPrice;
@@ -181,7 +182,7 @@ const CreateListing = () => {
       <form onSubmit={onSubmit}>
         <p className="text-lg mt-6 font-semibold">Sell / Rent</p>
         <div className="flex">
-          {/* sel btnl */}
+          {/* rent btn */}
           <button
             type="button"
             id="type"
@@ -208,7 +209,7 @@ const CreateListing = () => {
                 : "bg-slate-600 text-white"
             }`}
           >
-            Sell
+            Rent
           </button>
         </div>
 
