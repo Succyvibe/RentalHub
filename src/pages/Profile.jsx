@@ -1,7 +1,21 @@
 import { db } from "../firebase";
 import { FcHome } from "react-icons/fc";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ListingItem from "../components/ListingItem";
+import { getAuth, updateProfile } from "firebase/auth";
+import { useNavigate } from "react-router";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  orderBy,
+  query,
+  updateDoc,
+  where,
+} from "firebase/firestore";
+import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 export default function Profile() {
   const auth = getAuth();
