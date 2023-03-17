@@ -50,7 +50,7 @@ const Slider = () => {
     listings && (
       <>
         <Swiper
-          slidesPer={1}
+          slidesper={1}
           navigation
           pagination={{ type: "progressbar" }}
           effect="fade"
